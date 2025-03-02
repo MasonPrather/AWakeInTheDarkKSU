@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5brub75g251y"
-path="res://.godot/imported/flipped_pirate_ship_deck_720.png-62aa25b9e8e751ab05fe01d5e96579b5.ctex"
+uid="uid://d0dckodxyuq1u"
+path="res://.godot/imported/compass_lied_note_2.png-64c9f4a35723abcf98ac2490f6683785.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/flipped_pirate_ship_deck_720.png"
-dest_files=["res://.godot/imported/flipped_pirate_ship_deck_720.png-62aa25b9e8e751ab05fe01d5e96579b5.ctex"]
+source_file="res://Assets/items/compass_lied_note_2.png"
+dest_files=["res://.godot/imported/compass_lied_note_2.png-64c9f4a35723abcf98ac2490f6683785.ctex"]
 
 [params]
 

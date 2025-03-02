@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jwictdc2sc4h"
-path="res://.godot/imported/compass_lied_note.png-8ae13b6659638dcb4fcd4b9e5619832f.ctex"
+uid="uid://b5brub75g251y"
+path="res://.godot/imported/bridge.png-c7d763219aae7fea62d0c13e6395cdde.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/compass_lied_note.png"
-dest_files=["res://.godot/imported/compass_lied_note.png-8ae13b6659638dcb4fcd4b9e5619832f.ctex"]
+source_file="res://Assets/backgrounds/bridge.png"
+dest_files=["res://.godot/imported/bridge.png-c7d763219aae7fea62d0c13e6395cdde.ctex"]
 
 [params]
 

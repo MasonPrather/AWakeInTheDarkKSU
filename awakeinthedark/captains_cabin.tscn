@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://by4u053fm8ocv"]
+
+[ext_resource type="Script" path="res://captains_cabin.gd" id="1_gh1eo"]
+[ext_resource type="Texture2D" uid="uid://cwu7nan8oi2ic" path="res://Assets/backgrounds/captains_cabin.jpg" id="2_dnfu8"]
+[ext_resource type="Script" path="res://camera_2d.gd" id="3_is27p"]
+
+[node name="CaptainsCabin" type="Node2D"]
+script = ExtResource("1_gh1eo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_dnfu8")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("3_is27p")
