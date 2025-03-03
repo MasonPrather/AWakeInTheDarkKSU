@@ -1,8 +1,34 @@
-[gd_scene load_steps=4 format=3 uid="uid://by4u053fm8ocv"]
+[gd_scene load_steps=16 format=3 uid="uid://by4u053fm8ocv"]
 
 [ext_resource type="Script" path="res://captains_cabin.gd" id="1_gh1eo"]
 [ext_resource type="Texture2D" uid="uid://cwu7nan8oi2ic" path="res://Assets/backgrounds/captains_cabin.jpg" id="2_dnfu8"]
 [ext_resource type="Script" path="res://camera_2d.gd" id="3_is27p"]
+[ext_resource type="Script" path="res://logbook_area.gd" id="4_h21dr"]
+[ext_resource type="Script" path="res://coffee_cup_area.gd" id="5_dfnf3"]
+[ext_resource type="Script" path="res://map_area.gd" id="5_goosf"]
+[ext_resource type="Script" path="res://compass_area.gd" id="7_ouv6r"]
+[ext_resource type="Script" path="res://note_area.gd" id="8_2t4jj"]
+[ext_resource type="Script" path="res://key_area.gd" id="9_wbau1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jj21s"]
+size = Vector2(191.528, 88.4311)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jspqf"]
+radius = 29.0
+height = 66.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vkc80"]
+size = Vector2(53, 115)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3edpp"]
+radius = 18.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uh2a4"]
+radius = 16.1555
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rj50c"]
+radius = 13.0
+height = 46.0
 
 [node name="CaptainsCabin" type="Node2D"]
 script = ExtResource("1_gh1eo")
@@ -12,3 +38,54 @@ texture = ExtResource("2_dnfu8")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("3_is27p")
+
+[node name="LogbookArea" type="Area2D" parent="."]
+script = ExtResource("4_h21dr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LogbookArea"]
+position = Vector2(5, 226)
+rotation = -0.443917
+shape = SubResource("RectangleShape2D_jj21s")
+
+[node name="CoffeeCupArea" type="Area2D" parent="."]
+script = ExtResource("5_dfnf3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CoffeeCupArea"]
+position = Vector2(305, 176)
+shape = SubResource("CapsuleShape2D_jspqf")
+
+[node name="MapArea" type="Area2D" parent="."]
+script = ExtResource("5_goosf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MapArea"]
+position = Vector2(-331.5, -173.5)
+shape = SubResource("RectangleShape2D_vkc80")
+
+[node name="CompassArea" type="Area2D" parent="."]
+script = ExtResource("7_ouv6r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CompassArea"]
+position = Vector2(-173, 241)
+shape = SubResource("CircleShape2D_3edpp")
+
+[node name="NoteArea" type="Area2D" parent="."]
+script = ExtResource("8_2t4jj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NoteArea"]
+position = Vector2(-308, 183)
+shape = SubResource("CircleShape2D_uh2a4")
+
+[node name="KeyArea" type="Area2D" parent="."]
+script = ExtResource("9_wbau1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KeyArea"]
+position = Vector2(268, -42)
+shape = SubResource("CapsuleShape2D_rj50c")
+
+[node name="MapItem" type="Sprite2D" parent="."]
+
+[node name="CompassItem" type="Sprite2D" parent="."]
+
+[node name="NoteItem" type="Sprite2D" parent="."]
+
+[node name="KeyItem" type="Sprite2D" parent="."]
