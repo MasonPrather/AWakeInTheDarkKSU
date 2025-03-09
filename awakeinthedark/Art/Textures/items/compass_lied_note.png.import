@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjilw35fdxp3a"
-path="res://.godot/imported/compass_lied_book.png-14f06893a792ec730740a375c5140975.ctex"
+uid="uid://jwictdc2sc4h"
+path="res://.godot/imported/compass_lied_note.png-5c6345b5b65d92ee3c4ae415ff8fb2c7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/items/compass_lied_book.png"
-dest_files=["res://.godot/imported/compass_lied_book.png-14f06893a792ec730740a375c5140975.ctex"]
+source_file="res://Art/Textures/items/compass_lied_note.png"
+dest_files=["res://.godot/imported/compass_lied_note.png-5c6345b5b65d92ee3c4ae415ff8fb2c7.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bynlndyaa0rpn"
-path="res://.godot/imported/broken_compass.png-d1cba0c2d69a130050dcfbbe7a99913b.ctex"
+uid="uid://cwu7nan8oi2ic"
+path="res://.godot/imported/captains_cabin.jpg-4a062eb81a0835fc09a3a03154d9d3a7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/items/broken_compass.png"
-dest_files=["res://.godot/imported/broken_compass.png-d1cba0c2d69a130050dcfbbe7a99913b.ctex"]
+source_file="res://Art/Textures/backgrounds/captains_cabin.jpg"
+dest_files=["res://.godot/imported/captains_cabin.jpg-4a062eb81a0835fc09a3a03154d9d3a7.ctex"]
 
 [params]
 

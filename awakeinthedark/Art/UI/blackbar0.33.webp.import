@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cwu7nan8oi2ic"
-path="res://.godot/imported/captains_cabin.jpg-14664050f29ceafbd5fd5b51047d96c5.ctex"
+uid="uid://iaoo6mhnssi7"
+path="res://.godot/imported/blackbar0.33.webp-bbefffb065a48abaf4d9fd5867000677.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/backgrounds/captains_cabin.jpg"
-dest_files=["res://.godot/imported/captains_cabin.jpg-14664050f29ceafbd5fd5b51047d96c5.ctex"]
+source_file="res://Art/UI/blackbar0.33.webp"
+dest_files=["res://.godot/imported/blackbar0.33.webp-bbefffb065a48abaf4d9fd5867000677.ctex"]
 
 [params]
 

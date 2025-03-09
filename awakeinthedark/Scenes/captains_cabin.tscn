@@ -1,0 +1,151 @@
+[gd_scene load_steps=25 format=3 uid="uid://by4u053fm8ocv"]
+
+[ext_resource type="Script" path="res://Scripts/captains_cabin.gd" id="1_gh1eo"]
+[ext_resource type="Texture2D" uid="uid://cwu7nan8oi2ic" path="res://Art/Textures/backgrounds/captains_cabin.jpg" id="2_dnfu8"]
+[ext_resource type="Script" path="res://Scripts/camera_2d.gd" id="3_is27p"]
+[ext_resource type="Script" path="res://Scripts/logbook_area.gd" id="4_h21dr"]
+[ext_resource type="Script" path="res://Scripts/coffee_cup_area.gd" id="5_dfnf3"]
+[ext_resource type="Script" path="res://Scripts/map_area.gd" id="5_goosf"]
+[ext_resource type="Script" path="res://Scripts/compass_area.gd" id="7_ouv6r"]
+[ext_resource type="Script" path="res://Scripts/note_area.gd" id="8_2t4jj"]
+[ext_resource type="Script" path="res://Scripts/key_area.gd" id="9_wbau1"]
+[ext_resource type="Texture2D" uid="uid://ccd6u3bj61i2q" path="res://Art/UI/blackbar0.66.webp" id="10_xuj3b"]
+[ext_resource type="Texture2D" uid="uid://0glhhrx3oxt0" path="res://Art/Textures/items/old_map.png" id="11_blglu"]
+[ext_resource type="Texture2D" uid="uid://bynlndyaa0rpn" path="res://Art/Textures/items/broken_compass.png" id="12_ss7kq"]
+[ext_resource type="Texture2D" uid="uid://d0dckodxyuq1u" path="res://Art/Textures/items/compass_lied_note_2.png" id="13_p3b6p"]
+[ext_resource type="Texture2D" uid="uid://cjilw35fdxp3a" path="res://Art/Textures/items/compass_lied_book.png" id="14_njrbi"]
+[ext_resource type="Texture2D" uid="uid://b4rbkbvj63qhs" path="res://Art/Textures/items/key.png" id="15_5v820"]
+[ext_resource type="Script" path="res://Scripts/dialogue_popup.gd" id="16_jabw4"]
+[ext_resource type="Texture2D" uid="uid://dpvd0pwuwd2q" path="res://Art/UI/blackbar0.5.webp" id="17_aoyoi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jj21s"]
+size = Vector2(278.5, 150.165)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jspqf"]
+radius = 43.0
+height = 86.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vkc80"]
+size = Vector2(78.5, 161.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3edpp"]
+radius = 30.0167
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uh2a4"]
+radius = 27.4591
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rj50c"]
+radius = 13.0
+height = 46.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_8pcff"]
+font_size = 40
+
+[node name="CaptainsCabin" type="Node2D"]
+script = ExtResource("1_gh1eo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.4, 1.4)
+texture = ExtResource("2_dnfu8")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("3_is27p")
+
+[node name="LogbookArea" type="Area2D" parent="."]
+script = ExtResource("4_h21dr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LogbookArea"]
+position = Vector2(24, 319)
+rotation = -0.443917
+shape = SubResource("RectangleShape2D_jj21s")
+
+[node name="CoffeeCupArea" type="Area2D" parent="."]
+script = ExtResource("5_dfnf3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CoffeeCupArea"]
+position = Vector2(427, 244)
+shape = SubResource("CapsuleShape2D_jspqf")
+
+[node name="MapArea" type="Area2D" parent="."]
+script = ExtResource("5_goosf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MapArea"]
+position = Vector2(-460.25, -241.75)
+shape = SubResource("RectangleShape2D_vkc80")
+
+[node name="CompassArea" type="Area2D" parent="."]
+script = ExtResource("7_ouv6r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CompassArea"]
+position = Vector2(-241, 339)
+shape = SubResource("CircleShape2D_3edpp")
+
+[node name="NoteArea" type="Area2D" parent="."]
+script = ExtResource("8_2t4jj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NoteArea"]
+position = Vector2(-355, 333)
+shape = SubResource("CircleShape2D_uh2a4")
+
+[node name="KeyArea" type="Area2D" parent="."]
+script = ExtResource("9_wbau1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KeyArea"]
+position = Vector2(374, -58)
+shape = SubResource("CapsuleShape2D_rj50c")
+
+[node name="ItemInventoryBar" type="Sprite2D" parent="."]
+position = Vector2(0, -394)
+scale = Vector2(1.44, 0.531064)
+texture = ExtResource("10_xuj3b")
+
+[node name="MapItem" type="Sprite2D" parent="."]
+position = Vector2(-228, -411)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("11_blglu")
+
+[node name="CompassItem" type="Sprite2D" parent="."]
+position = Vector2(-116, -406)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("12_ss7kq")
+
+[node name="NoteItem" type="Sprite2D" parent="."]
+position = Vector2(9.53674e-07, -411)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("13_p3b6p")
+
+[node name="LogbookItem" type="Sprite2D" parent="."]
+position = Vector2(123, -407)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("14_njrbi")
+
+[node name="KeyItem" type="Sprite2D" parent="."]
+position = Vector2(234, -406)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("15_5v820")
+
+[node name="Popup" type="Control" parent="." node_paths=PackedStringArray("dialogue_label")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("16_jabw4")
+dialogue_label = NodePath("Label")
+
+[node name="Label" type="Label" parent="Popup"]
+z_index = 1
+custom_minimum_size = Vector2(800, 200)
+layout_mode = 0
+offset_left = -397.0
+offset_top = -210.0
+offset_right = 403.0
+offset_bottom = 190.0
+text = "Test Label"
+label_settings = SubResource("LabelSettings_8pcff")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Background" type="Sprite2D" parent="Popup"]
+scale = Vector2(2, 1.32)
+texture = ExtResource("17_aoyoi")

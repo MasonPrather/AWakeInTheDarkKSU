@@ -1,0 +1,82 @@
+[gd_scene load_steps=10 format=3 uid="uid://ji2gffopi6q7"]
+
+[ext_resource type="Texture2D" uid="uid://qtaupdielra" path="res://Art/Textures/tester.png" id="1_prkc6"]
+[ext_resource type="Script" path="res://Scripts/pnc_template.gd" id="1_segkt"]
+[ext_resource type="Script" path="res://Scripts/camera_2d.gd" id="2_8e4dn"]
+[ext_resource type="Script" path="res://Scripts/collectible.gd" id="3_42nsf"]
+[ext_resource type="Script" path="res://Scripts/moveable.gd" id="4_jvrnl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mt60w"]
+size = Vector2(221.75, 98.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m10pi"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_mf47o"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_7aals"]
+
+[node name="Root" type="Node2D"]
+script = ExtResource("1_segkt")
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("1_prkc6")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("2_8e4dn")
+
+[node name="Test1CollectibleObject" type="Area2D" parent="."]
+script = ExtResource("3_42nsf")
+item_name = "test1"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Test1CollectibleObject"]
+z_index = 1
+position = Vector2(-227, -94)
+shape = SubResource("RectangleShape2D_mt60w")
+
+[node name="Test2CollectibleObject" type="Area2D" parent="."]
+script = ExtResource("3_42nsf")
+item_name = "test2"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Test2CollectibleObject"]
+z_index = 1
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_mt60w")
+
+[node name="MoveableObject" type="Area2D" parent="."]
+position = Vector2(226, 97)
+scale = Vector2(200, 92.166)
+script = ExtResource("4_jvrnl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MoveableObject"]
+scale = Vector2(0.06, 0.06)
+shape = SubResource("RectangleShape2D_m10pi")
+
+[node name="Sprite2D" type="Sprite2D" parent="MoveableObject"]
+texture = SubResource("PlaceholderTexture2D_mf47o")
+
+[node name="Test3CollectibleObject" type="Area2D" parent="."]
+z_index = 1
+position = Vector2(800, 97)
+script = ExtResource("3_42nsf")
+item_name = "test3"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Test3CollectibleObject"]
+shape = SubResource("RectangleShape2D_mt60w")
+
+[node name="Test1Item" type="Sprite2D" parent="."]
+position = Vector2(-300, 250)
+scale = Vector2(125, 125)
+texture = SubResource("PlaceholderTexture2D_7aals")
+
+[node name="Test2Item" type="Sprite2D" parent="."]
+position = Vector2(0, 250)
+scale = Vector2(125, 125)
+texture = SubResource("PlaceholderTexture2D_7aals")
+
+[node name="Test3Item" type="Sprite2D" parent="."]
+position = Vector2(300, 250)
+scale = Vector2(125, 125)
+texture = SubResource("PlaceholderTexture2D_7aals")
+
+[connection signal="RevealItem" from="." to="." method="reveal_item"]
+[connection signal="RevealItem" from="MoveableObject" to="." method="reveal_item"]
