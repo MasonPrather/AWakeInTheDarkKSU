@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmdru156enryu"
-path="res://.godot/imported/hallway.png-947463392b8872a0e27f101f459cb258.ctex"
+uid="uid://bynlndyaa0rpn"
+path="res://.godot/imported/broken_compass.png-460d89a24287049b23fb00fbf116ce39.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/backgrounds/hallway.png"
-dest_files=["res://.godot/imported/hallway.png-947463392b8872a0e27f101f459cb258.ctex"]
+source_file="res://Art/Textures/items/broken_compass.png"
+dest_files=["res://.godot/imported/broken_compass.png-460d89a24287049b23fb00fbf116ce39.ctex"]
 
 [params]
 

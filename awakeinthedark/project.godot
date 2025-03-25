@@ -11,9 +11,15 @@ config_version=5
 [application]
 
 config/name="AWakeInTheDark"
-run/main_scene="res://captains_cabin.tscn"
+run/main_scene="res://Scenes/captains_cabin.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
-config/icon="res://Assets/icon.svg"
+config/icon="res://Art/Textures/icon.svg"
+
+[display]
+
+window/size/viewport_width=1000
+window/size/viewport_height=1000
+window/size/resizable=false
 
 [rendering]
 

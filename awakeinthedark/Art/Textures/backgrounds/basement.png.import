@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0dckodxyuq1u"
-path="res://.godot/imported/compass_lied_note_2.png-64c9f4a35723abcf98ac2490f6683785.ctex"
+uid="uid://denkyors5p5dy"
+path="res://.godot/imported/basement.png-714596ad3da2d585cc12be8e7017750a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/items/compass_lied_note_2.png"
-dest_files=["res://.godot/imported/compass_lied_note_2.png-64c9f4a35723abcf98ac2490f6683785.ctex"]
+source_file="res://Art/Textures/backgrounds/basement.png"
+dest_files=["res://.godot/imported/basement.png-714596ad3da2d585cc12be8e7017750a.ctex"]
 
 [params]
 

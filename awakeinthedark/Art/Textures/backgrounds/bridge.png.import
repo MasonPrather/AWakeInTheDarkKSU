@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://denkyors5p5dy"
-path="res://.godot/imported/basement.png-0726926f23973751f24d71916423bac7.ctex"
+uid="uid://b5brub75g251y"
+path="res://.godot/imported/bridge.png-7ca8fab8d86bab6b9a8659824967a396.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/backgrounds/basement.png"
-dest_files=["res://.godot/imported/basement.png-0726926f23973751f24d71916423bac7.ctex"]
+source_file="res://Art/Textures/backgrounds/bridge.png"
+dest_files=["res://.godot/imported/bridge.png-7ca8fab8d86bab6b9a8659824967a396.ctex"]
 
 [params]
 
