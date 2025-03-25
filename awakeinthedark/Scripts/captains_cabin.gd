@@ -20,7 +20,6 @@ func handle_item_interaction(item_name):
 			add_to_inventory("logbook")
 			
 		"coffee_cup":
-			$CoffeeCupItem.visible = true
 			print("A half-finished cup of coffee. Still warm...")
 			dialogue_popup.show_dialogue("A half-finished cup of coffee. Still warm...")
 			
@@ -37,8 +36,8 @@ func handle_item_interaction(item_name):
 			add_to_inventory("compass")
 			
 			
-		"compass_note":
-			$CompassNoteItem.visible = true
+		"note":
+			$NoteItem.visible = true
 			print("A note that reads 'The Compass Lied'...")
 			dialogue_popup.show_dialogue("A note that reads 'The Compass Lied'...")
 			add_to_inventory("compass_note")

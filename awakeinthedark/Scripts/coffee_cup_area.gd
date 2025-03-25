@@ -1,6 +1,6 @@
 extends Area2D
 
-var item_name = "coffee cup"
+var item_name = "coffee_cup"
 
 func _ready():
 	input_pickable = true
