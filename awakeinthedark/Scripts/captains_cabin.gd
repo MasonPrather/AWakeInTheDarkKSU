@@ -63,14 +63,16 @@ func handle_item_interaction(item_name):
 			if has_item("key"):
 				print("You unlocked the door!")
 				dialogue_popup.show_dialogue("You unlocked the door!")
-				# Here you would add code to transition to the next room
-				# Example: get_tree().change_scene_to_file("res://Scenes/hallway.tscn")
+				
+				await get_tree().create_timer(2.0).timeout
+				
+				get_tree().change_scene_to_file("res://Scenes/hallway.tscn")
 			else:
 				print("It's locked! There must be a key somewhere...")
 				dialogue_popup.show_dialogue("It's locked! There must be a key somewhere...")
 			
 		"key":
-			# Check if player has found all other important items
+			# check if player has found all other important items
 			if has_item("logbook") and has_item("map") and has_item("compass") and has_item("compass_note"):
 				$KeyItem.visible = true
 				print("You found a key! It might open the door.")
