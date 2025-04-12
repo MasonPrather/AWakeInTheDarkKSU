@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://by4u053fm8ocv"]
+[gd_scene load_steps=30 format=3 uid="uid://by4u053fm8ocv"]
 
 [ext_resource type="Script" path="res://Scripts/captains_cabin.gd" id="1_gh1eo"]
 [ext_resource type="Texture2D" uid="uid://cwu7nan8oi2ic" path="res://Art/Textures/backgrounds/captains_cabin.jpg" id="2_dnfu8"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://Scripts/compass_area.gd" id="7_ouv6r"]
 [ext_resource type="Script" path="res://Scripts/note_area.gd" id="8_2t4jj"]
 [ext_resource type="Script" path="res://Scripts/key_area.gd" id="9_wbau1"]
+[ext_resource type="Script" path="res://Scenes/door_area.gd" id="10_2qiup"]
 [ext_resource type="Texture2D" uid="uid://ccd6u3bj61i2q" path="res://Art/UI/blackbar0.66.webp" id="10_xuj3b"]
 [ext_resource type="Texture2D" uid="uid://0glhhrx3oxt0" path="res://Art/Textures/items/old_map.png" id="11_blglu"]
 [ext_resource type="Texture2D" uid="uid://bynlndyaa0rpn" path="res://Art/Textures/items/broken_compass.png" id="12_ss7kq"]
@@ -17,6 +18,9 @@
 [ext_resource type="Texture2D" uid="uid://b4rbkbvj63qhs" path="res://Art/Textures/items/key.png" id="15_5v820"]
 [ext_resource type="Script" path="res://Scripts/dialogue_popup.gd" id="16_jabw4"]
 [ext_resource type="Texture2D" uid="uid://dpvd0pwuwd2q" path="res://Art/UI/blackbar0.5.webp" id="17_aoyoi"]
+[ext_resource type="AudioStream" uid="uid://ccqj3a282push" path="res://Audio/music/secrecy-soundtrack-299642.mp3" id="19_lob3y"]
+[ext_resource type="AudioStream" uid="uid://cp24sesqsy3oi" path="res://Audio/sfx/rclick-13693.mp3" id="20_06jtd"]
+[ext_resource type="AudioStream" uid="uid://ceodlgjkik4iq" path="res://Audio/sfx/item-equip-6904.mp3" id="21_a7ytr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jj21s"]
 size = Vector2(278.5, 150.165)
@@ -37,6 +41,9 @@ radius = 27.4591
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rj50c"]
 radius = 13.0
 height = 46.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ad3vh"]
+size = Vector2(140, 290.5)
 
 [sub_resource type="LabelSettings" id="LabelSettings_8pcff"]
 font_size = 40
@@ -94,6 +101,13 @@ script = ExtResource("9_wbau1")
 position = Vector2(374, -58)
 shape = SubResource("CapsuleShape2D_rj50c")
 
+[node name="DoorArea" type="Area2D" parent="."]
+script = ExtResource("10_2qiup")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorArea"]
+position = Vector2(-190, -229.25)
+shape = SubResource("RectangleShape2D_ad3vh")
+
 [node name="ItemInventoryBar" type="Sprite2D" parent="."]
 position = Vector2(0, -394)
 scale = Vector2(1.44, 0.531064)
@@ -149,3 +163,14 @@ autowrap_mode = 2
 [node name="Background" type="Sprite2D" parent="Popup"]
 scale = Vector2(2, 1.32)
 texture = ExtResource("17_aoyoi")
+
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("19_lob3y")
+volume_db = 6.0
+autoplay = true
+
+[node name="ClickSoundPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("20_06jtd")
+
+[node name="InventorySoundPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("21_a7ytr")
