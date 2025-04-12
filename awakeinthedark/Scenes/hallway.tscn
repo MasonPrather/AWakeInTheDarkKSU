@@ -1,9 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://c6gx1ywqs5ynv"]
+[gd_scene load_steps=8 format=3 uid="uid://c6gx1ywqs5ynv"]
 
 [ext_resource type="Texture2D" uid="uid://cmdru156enryu" path="res://Art/Textures/backgrounds/hallway.png" id="1_re4ul"]
 [ext_resource type="AudioStream" uid="uid://ccqj3a282push" path="res://Audio/music/secrecy-soundtrack-299642.mp3" id="2_5rw0r"]
 [ext_resource type="AudioStream" uid="uid://ceodlgjkik4iq" path="res://Audio/sfx/item-equip-6904.mp3" id="3_o6o30"]
 [ext_resource type="AudioStream" uid="uid://cp24sesqsy3oi" path="res://Audio/sfx/rclick-13693.mp3" id="4_07inh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_120gd"]
+size = Vector2(59, 73)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xehvn"]
+radius = 27.0
+height = 386.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0n0tp"]
+size = Vector2(87.5, 60)
 
 [node name="Hallway" type="Node2D"]
 
@@ -24,3 +34,21 @@ stream = ExtResource("3_o6o30")
 
 [node name="ClickSoundPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_07inh")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-129, 45)
+shape = SubResource("RectangleShape2D_120gd")
+
+[node name="Area2D2" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(327, -41)
+shape = SubResource("CapsuleShape2D_xehvn")
+
+[node name="Area2D3" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3"]
+position = Vector2(16.25, -231)
+shape = SubResource("RectangleShape2D_0n0tp")
