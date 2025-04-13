@@ -11,15 +11,27 @@ config_version=5
 [application]
 
 config/name="AWakeInTheDark"
-run/main_scene="res://Scenes/captains_cabin.tscn"
-config/features=PackedStringArray("4.3", "Mobile")
-config/icon="res://Art/Textures/icon.svg"
+run/main_scene="uid://b282rnfc43mmv"
+config/features=PackedStringArray("4.4", "Mobile")
+config/icon="res://cutscene.webm"
+
+[autoload]
+
+SaveManager="*res://Scripts/save_manager.gd"
 
 [display]
 
 window/size/viewport_width=1000
 window/size/viewport_height=1000
 window/size/resizable=false
+
+[input]
+
+ui_cancel={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":4194305,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
 
 [rendering]
 

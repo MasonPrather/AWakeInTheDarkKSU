@@ -1,26 +1,23 @@
-[gd_scene load_steps=30 format=3 uid="uid://by4u053fm8ocv"]
+[gd_scene load_steps=27 format=3 uid="uid://by4u053fm8ocv"]
 
-[ext_resource type="Script" path="res://Scripts/captains_cabin.gd" id="1_gh1eo"]
+[ext_resource type="Script" uid="uid://bl25oext4um84" path="res://Scripts/captains_cabin.gd" id="1_t3me6"]
 [ext_resource type="Texture2D" uid="uid://cwu7nan8oi2ic" path="res://Art/Textures/backgrounds/captains_cabin.jpg" id="2_dnfu8"]
-[ext_resource type="Script" path="res://Scripts/camera_2d.gd" id="3_is27p"]
-[ext_resource type="Script" path="res://Scripts/logbook_area.gd" id="4_h21dr"]
-[ext_resource type="Script" path="res://Scripts/coffee_cup_area.gd" id="5_dfnf3"]
-[ext_resource type="Script" path="res://Scripts/map_area.gd" id="5_goosf"]
-[ext_resource type="Script" path="res://Scripts/compass_area.gd" id="7_ouv6r"]
-[ext_resource type="Script" path="res://Scripts/note_area.gd" id="8_2t4jj"]
-[ext_resource type="Script" path="res://Scripts/key_area.gd" id="9_wbau1"]
-[ext_resource type="Script" path="res://Scenes/door_area.gd" id="10_2qiup"]
+[ext_resource type="Script" uid="uid://cyr7wmgbu1e4q" path="res://Scripts/camera_2d.gd" id="3_is27p"]
+[ext_resource type="Script" uid="uid://dpxyjgc0d0j8a" path="res://Scripts/logbook_area.gd" id="4_h21dr"]
+[ext_resource type="Script" uid="uid://d2nw21idy5rtw" path="res://Scripts/coffee_cup_area.gd" id="5_dfnf3"]
+[ext_resource type="Script" uid="uid://cposl5d0sklxa" path="res://Scripts/map_area.gd" id="5_goosf"]
+[ext_resource type="Script" uid="uid://bck80cpocfyn7" path="res://Scripts/compass_area.gd" id="7_ouv6r"]
+[ext_resource type="Script" uid="uid://c5opyws6m1bnk" path="res://Scripts/note_area.gd" id="8_2t4jj"]
+[ext_resource type="Script" uid="uid://b2y2xchlojku0" path="res://Scripts/key_area.gd" id="9_wbau1"]
+[ext_resource type="Script" uid="uid://d0mqpmdcuwv8h" path="res://Scenes/door_area.gd" id="10_2qiup"]
 [ext_resource type="Texture2D" uid="uid://ccd6u3bj61i2q" path="res://Art/UI/blackbar0.66.webp" id="10_xuj3b"]
 [ext_resource type="Texture2D" uid="uid://0glhhrx3oxt0" path="res://Art/Textures/items/old_map.png" id="11_blglu"]
 [ext_resource type="Texture2D" uid="uid://bynlndyaa0rpn" path="res://Art/Textures/items/broken_compass.png" id="12_ss7kq"]
 [ext_resource type="Texture2D" uid="uid://d0dckodxyuq1u" path="res://Art/Textures/items/compass_lied_note_2.png" id="13_p3b6p"]
 [ext_resource type="Texture2D" uid="uid://cjilw35fdxp3a" path="res://Art/Textures/items/compass_lied_book.png" id="14_njrbi"]
 [ext_resource type="Texture2D" uid="uid://b4rbkbvj63qhs" path="res://Art/Textures/items/key.png" id="15_5v820"]
-[ext_resource type="Script" path="res://Scripts/dialogue_popup.gd" id="16_jabw4"]
+[ext_resource type="Script" uid="uid://34yvgyqg10w7" path="res://Scripts/dialogue_popup.gd" id="16_jabw4"]
 [ext_resource type="Texture2D" uid="uid://dpvd0pwuwd2q" path="res://Art/UI/blackbar0.5.webp" id="17_aoyoi"]
-[ext_resource type="AudioStream" uid="uid://ccqj3a282push" path="res://Audio/music/secrecy-soundtrack-299642.mp3" id="19_lob3y"]
-[ext_resource type="AudioStream" uid="uid://cp24sesqsy3oi" path="res://Audio/sfx/rclick-13693.mp3" id="20_06jtd"]
-[ext_resource type="AudioStream" uid="uid://ceodlgjkik4iq" path="res://Audio/sfx/item-equip-6904.mp3" id="21_a7ytr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jj21s"]
 size = Vector2(278.5, 150.165)
@@ -49,7 +46,7 @@ size = Vector2(140, 290.5)
 font_size = 40
 
 [node name="CaptainsCabin" type="Node2D"]
-script = ExtResource("1_gh1eo")
+script = ExtResource("1_t3me6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(1.4, 1.4)
@@ -165,12 +162,9 @@ scale = Vector2(2, 1.32)
 texture = ExtResource("17_aoyoi")
 
 [node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("19_lob3y")
 volume_db = 6.0
 autoplay = true
 
 [node name="ClickSoundPlayer" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("20_06jtd")
 
 [node name="InventorySoundPlayer" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("21_a7ytr")

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b282rnfc43mmv"]
+
+[ext_resource type="Script" uid="uid://bui7uuahwnb2l" path="res://Scripts/forced_scene_transition.gd" id="1_06t4h"]
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_06t4h")
