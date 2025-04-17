@@ -1,10 +1,10 @@
 [gd_scene load_steps=10 format=3 uid="uid://ji2gffopi6q7"]
 
 [ext_resource type="Texture2D" uid="uid://qtaupdielra" path="res://Art/Textures/tester.png" id="1_prkc6"]
-[ext_resource type="Script" path="res://Scripts/pnc_template.gd" id="1_segkt"]
-[ext_resource type="Script" path="res://Scripts/camera_2d.gd" id="2_8e4dn"]
-[ext_resource type="Script" path="res://Scripts/collectible.gd" id="3_42nsf"]
-[ext_resource type="Script" path="res://Scripts/moveable.gd" id="4_jvrnl"]
+[ext_resource type="Script" path="res://Scripts/SceneScripts/pnc_template.gd" id="1_segkt"]
+[ext_resource type="Script" path="res://Scripts/Gameplay/camera_2d.gd" id="2_8e4dn"]
+[ext_resource type="Script" path="res://Scripts/Objects/collectible.gd" id="3_42nsf"]
+[ext_resource type="Script" path="res://Scripts/Gameplay/moveable.gd" id="4_jvrnl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mt60w"]
 size = Vector2(221.75, 98.25)

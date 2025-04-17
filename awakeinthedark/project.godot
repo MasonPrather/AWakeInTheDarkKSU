@@ -15,6 +15,10 @@ run/main_scene="res://Scenes/captains_cabin.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://Art/Textures/icon.svg"
 
+[autoload]
+
+SaveManager="*res://Scripts/File Management/save_manager.gd"
+
 [display]
 
 window/size/viewport_width=1000

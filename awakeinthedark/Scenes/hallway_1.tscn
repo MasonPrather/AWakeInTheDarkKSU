@@ -1,0 +1,159 @@
+[gd_scene load_steps=21 format=3 uid="uid://c6gx1ywqs5ynv"]
+
+[ext_resource type="Script" path="res://Scripts/SceneScripts/hallway.gd" id="1_yjlou"]
+[ext_resource type="Texture2D" uid="uid://cmdru156enryu" path="res://Art/Textures/backgrounds/hallway.png" id="2_jvnik"]
+[ext_resource type="Script" path="res://Scripts/Objects/collectible.gd" id="4_y4eqq"]
+[ext_resource type="Texture2D" uid="uid://ccd6u3bj61i2q" path="res://Art/UI/blackbar0.66.webp" id="7_3bdfn"]
+[ext_resource type="Texture2D" uid="uid://0glhhrx3oxt0" path="res://Art/Textures/items/old_map.png" id="8_t76yk"]
+[ext_resource type="Texture2D" uid="uid://bynlndyaa0rpn" path="res://Art/Textures/items/broken_compass.png" id="9_0bgf1"]
+[ext_resource type="Texture2D" uid="uid://d0dckodxyuq1u" path="res://Art/Textures/items/compass_lied_note_2.png" id="10_6dsri"]
+[ext_resource type="Texture2D" uid="uid://cjilw35fdxp3a" path="res://Art/Textures/items/compass_lied_book.png" id="11_ujfwk"]
+[ext_resource type="Texture2D" uid="uid://b4rbkbvj63qhs" path="res://Art/Textures/items/key.png" id="12_63w6l"]
+[ext_resource type="Script" path="res://Scripts/Gameplay/dialogue_popup.gd" id="13_olbfu"]
+[ext_resource type="Texture2D" uid="uid://dpvd0pwuwd2q" path="res://Art/UI/blackbar0.5.webp" id="14_gaa3h"]
+[ext_resource type="AudioStream" uid="uid://ba6iwsf1rkc8s" path="res://Audio/music/secrecy-soundtrack-299642.mp3" id="15_v3m64"]
+[ext_resource type="AudioStream" uid="uid://4j0gem1vncr7" path="res://Audio/sfx/rclick-13693.mp3" id="16_ug7ky"]
+[ext_resource type="AudioStream" uid="uid://ce27ds7ep0ina" path="res://Audio/sfx/item-equip-6904.mp3" id="17_16aff"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ulknd"]
+size = Vector2(109, 131)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fpj2r"]
+radius = 46.3897
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e8hae"]
+radius = 37.0
+height = 128.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ybpcj"]
+size = Vector2(140, 290.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uafc7"]
+size = Vector2(39.5173, 74.6731)
+
+[sub_resource type="LabelSettings" id="LabelSettings_bxegl"]
+font_size = 40
+
+[node name="Hallway" type="Node2D"]
+script = ExtResource("1_yjlou")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1.49998, 5.50003)
+scale = Vector2(1.39306, 1.39861)
+texture = ExtResource("2_jvnik")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="CrateArea" type="Area2D" parent="."]
+position = Vector2(165, 83)
+script = ExtResource("4_y4eqq")
+item_name = "crate"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CrateArea"]
+shape = SubResource("RectangleShape2D_ulknd")
+
+[node name="WheelArea" type="Area2D" parent="."]
+position = Vector2(-92, -65)
+scale = Vector2(0.834107, 0.835061)
+script = ExtResource("4_y4eqq")
+item_name = "wheel"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WheelArea"]
+position = Vector2(-32, -27)
+shape = SubResource("CircleShape2D_fpj2r")
+
+[node name="LampArea" type="Area2D" parent="."]
+script = ExtResource("4_y4eqq")
+item_name = "lamp"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LampArea"]
+position = Vector2(389, -330)
+shape = SubResource("CapsuleShape2D_e8hae")
+
+[node name="DoorArea" type="Area2D" parent="."]
+position = Vector2(-308, -13)
+scale = Vector2(1, 1.76)
+script = ExtResource("4_y4eqq")
+item_name = "door"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorArea"]
+shape = SubResource("RectangleShape2D_ybpcj")
+
+[node name="EnterHallway2Area" type="Area2D" parent="."]
+position = Vector2(317, -13)
+scale = Vector2(1, 1.76)
+script = ExtResource("4_y4eqq")
+item_name = "hallway_2"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnterHallway2Area"]
+position = Vector2(7.5, 5.39774)
+scale = Vector2(1.64485, 3.99469)
+shape = SubResource("RectangleShape2D_uafc7")
+
+[node name="ItemInventoryBar" type="Sprite2D" parent="."]
+position = Vector2(0, -394)
+scale = Vector2(1.44, 0.531064)
+texture = ExtResource("7_3bdfn")
+
+[node name="WheelItem" type="Sprite2D" parent="."]
+position = Vector2(-228, -411)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("8_t76yk")
+
+[node name="Book1Item" type="Sprite2D" parent="."]
+position = Vector2(-116, -406)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("9_0bgf1")
+
+[node name="Book2Item" type="Sprite2D" parent="."]
+position = Vector2(9.53674e-07, -411)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("10_6dsri")
+
+[node name="PaintingItem" type="Sprite2D" parent="."]
+position = Vector2(123, -407)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("11_ujfwk")
+
+[node name="ComboCodeItem" type="Sprite2D" parent="."]
+position = Vector2(234, -406)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("12_63w6l")
+
+[node name="Popup" type="Control" parent="." node_paths=PackedStringArray("dialogue_label")]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("13_olbfu")
+dialogue_label = NodePath("Label")
+
+[node name="Label" type="Label" parent="Popup"]
+z_index = 1
+custom_minimum_size = Vector2(800, 200)
+layout_mode = 0
+offset_left = -397.0
+offset_top = -210.0
+offset_right = 403.0
+offset_bottom = 190.0
+text = "Test Label"
+label_settings = SubResource("LabelSettings_bxegl")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Background" type="Sprite2D" parent="Popup"]
+scale = Vector2(2, 1.32)
+texture = ExtResource("14_gaa3h")
+
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_v3m64")
+volume_db = 6.0
+autoplay = true
+
+[node name="ClickSoundPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_ug7ky")
+
+[node name="InventorySoundPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("17_16aff")
