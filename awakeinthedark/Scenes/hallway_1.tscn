@@ -1,19 +1,36 @@
-[gd_scene load_steps=21 format=3 uid="uid://c6gx1ywqs5ynv"]
+[gd_scene load_steps=23 format=3 uid="uid://c6gx1ywqs5ynv"]
 
 [ext_resource type="Script" path="res://Scripts/SceneScripts/hallway.gd" id="1_yjlou"]
 [ext_resource type="Texture2D" uid="uid://cmdru156enryu" path="res://Art/Textures/backgrounds/hallway.png" id="2_jvnik"]
+[ext_resource type="Texture2D" uid="uid://dujbatrsnbvxf" path="res://Art/UI/semitrans_arrow_right_2.png" id="4_cfe54"]
 [ext_resource type="Script" path="res://Scripts/Objects/collectible.gd" id="4_y4eqq"]
+[ext_resource type="Texture2D" uid="uid://cn0lxndrs846j" path="res://Art/Textures/items/wheel.png" id="6_7o6jj"]
+[ext_resource type="Texture2D" uid="uid://beghfdgot3gv7" path="res://Art/Textures/items/book1.png" id="7_1il6e"]
 [ext_resource type="Texture2D" uid="uid://ccd6u3bj61i2q" path="res://Art/UI/blackbar0.66.webp" id="7_3bdfn"]
-[ext_resource type="Texture2D" uid="uid://0glhhrx3oxt0" path="res://Art/Textures/items/old_map.png" id="8_t76yk"]
-[ext_resource type="Texture2D" uid="uid://bynlndyaa0rpn" path="res://Art/Textures/items/broken_compass.png" id="9_0bgf1"]
-[ext_resource type="Texture2D" uid="uid://d0dckodxyuq1u" path="res://Art/Textures/items/compass_lied_note_2.png" id="10_6dsri"]
-[ext_resource type="Texture2D" uid="uid://cjilw35fdxp3a" path="res://Art/Textures/items/compass_lied_book.png" id="11_ujfwk"]
-[ext_resource type="Texture2D" uid="uid://b4rbkbvj63qhs" path="res://Art/Textures/items/key.png" id="12_63w6l"]
+[ext_resource type="Texture2D" uid="uid://d2cvko82b8wme" path="res://Art/Textures/items/book2.png" id="8_n01bb"]
+[ext_resource type="Texture2D" uid="uid://djj2buh8e1v1d" path="res://Art/Textures/items/painting.png" id="9_6y66h"]
+[ext_resource type="Texture2D" uid="uid://bf1m3u4c2c4q" path="res://Art/Textures/items/combo.png" id="10_vkjtx"]
 [ext_resource type="Script" path="res://Scripts/Gameplay/dialogue_popup.gd" id="13_olbfu"]
 [ext_resource type="Texture2D" uid="uid://dpvd0pwuwd2q" path="res://Art/UI/blackbar0.5.webp" id="14_gaa3h"]
 [ext_resource type="AudioStream" uid="uid://ba6iwsf1rkc8s" path="res://Audio/music/secrecy-soundtrack-299642.mp3" id="15_v3m64"]
 [ext_resource type="AudioStream" uid="uid://4j0gem1vncr7" path="res://Audio/sfx/rclick-13693.mp3" id="16_ug7ky"]
 [ext_resource type="AudioStream" uid="uid://ce27ds7ep0ina" path="res://Audio/sfx/item-equip-6904.mp3" id="17_16aff"]
+
+[sub_resource type="GDScript" id="GDScript_mwijk"]
+script/source = "extends Area2D
+
+@export var item_name: String = \"name\"
+
+func _ready():
+	input_pickable = true
+	connect(\"input_event\", Callable(self, \"_on_input_event\"))
+
+func _on_input_event(_viewport, event, _shape_idx):
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		print(item_name + \" was clicked!\")
+		if get_parent().has_method(\"handle_item_interaction\"):
+			get_parent().handle_item_interaction(item_name)
+"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ulknd"]
 size = Vector2(109, 131)
@@ -29,7 +46,7 @@ height = 128.0
 size = Vector2(140, 290.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uafc7"]
-size = Vector2(39.5173, 74.6731)
+size = Vector2(54.1083, 72.824)
 
 [sub_resource type="LabelSettings" id="LabelSettings_bxegl"]
 font_size = 40
@@ -46,7 +63,7 @@ texture = ExtResource("2_jvnik")
 
 [node name="CrateArea" type="Area2D" parent="."]
 position = Vector2(165, 83)
-script = ExtResource("4_y4eqq")
+script = SubResource("GDScript_mwijk")
 item_name = "crate"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CrateArea"]
@@ -55,7 +72,7 @@ shape = SubResource("RectangleShape2D_ulknd")
 [node name="WheelArea" type="Area2D" parent="."]
 position = Vector2(-92, -65)
 scale = Vector2(0.834107, 0.835061)
-script = ExtResource("4_y4eqq")
+script = SubResource("GDScript_mwijk")
 item_name = "wheel"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WheelArea"]
@@ -63,20 +80,20 @@ position = Vector2(-32, -27)
 shape = SubResource("CircleShape2D_fpj2r")
 
 [node name="LampArea" type="Area2D" parent="."]
-script = ExtResource("4_y4eqq")
+script = SubResource("GDScript_mwijk")
 item_name = "lamp"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LampArea"]
 position = Vector2(389, -330)
 shape = SubResource("CapsuleShape2D_e8hae")
 
-[node name="DoorArea" type="Area2D" parent="."]
+[node name="Door1Area" type="Area2D" parent="."]
 position = Vector2(-308, -13)
 scale = Vector2(1, 1.76)
-script = ExtResource("4_y4eqq")
-item_name = "door"
+script = SubResource("GDScript_mwijk")
+item_name = "door1"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door1Area"]
 shape = SubResource("RectangleShape2D_ybpcj")
 
 [node name="EnterHallway2Area" type="Area2D" parent="."]
@@ -86,9 +103,14 @@ script = ExtResource("4_y4eqq")
 item_name = "hallway_2"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnterHallway2Area"]
-position = Vector2(7.5, 5.39774)
+position = Vector2(-4.5, 11.9318)
 scale = Vector2(1.64485, 3.99469)
 shape = SubResource("RectangleShape2D_uafc7")
+
+[node name="SemitransArrowRight" type="Sprite2D" parent="EnterHallway2Area"]
+position = Vector2(-6.00001, 11.9318)
+scale = Vector2(0.182924, 0.142717)
+texture = ExtResource("4_cfe54")
 
 [node name="ItemInventoryBar" type="Sprite2D" parent="."]
 position = Vector2(0, -394)
@@ -98,27 +120,27 @@ texture = ExtResource("7_3bdfn")
 [node name="WheelItem" type="Sprite2D" parent="."]
 position = Vector2(-228, -411)
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("8_t76yk")
+texture = ExtResource("6_7o6jj")
 
 [node name="Book1Item" type="Sprite2D" parent="."]
 position = Vector2(-116, -406)
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("9_0bgf1")
+texture = ExtResource("7_1il6e")
 
 [node name="Book2Item" type="Sprite2D" parent="."]
 position = Vector2(9.53674e-07, -411)
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("10_6dsri")
+texture = ExtResource("8_n01bb")
 
 [node name="PaintingItem" type="Sprite2D" parent="."]
 position = Vector2(123, -407)
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("11_ujfwk")
+texture = ExtResource("9_6y66h")
 
 [node name="ComboCodeItem" type="Sprite2D" parent="."]
 position = Vector2(234, -406)
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("12_63w6l")
+texture = ExtResource("10_vkjtx")
 
 [node name="Popup" type="Control" parent="." node_paths=PackedStringArray("dialogue_label")]
 visible = false

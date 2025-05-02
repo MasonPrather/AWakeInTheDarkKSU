@@ -1,0 +1,191 @@
+[gd_scene load_steps=23 format=3 uid="uid://dwp5cfw6dvhug"]
+
+[ext_resource type="Script" path="res://Scripts/SceneScripts/hallway.gd" id="1_4xhfe"]
+[ext_resource type="Texture2D" uid="uid://ddrefi82jsyql" path="res://Art/Textures/backgrounds/hallway_sideroom.png" id="2_dvykm"]
+[ext_resource type="Script" path="res://Scripts/Objects/collectible.gd" id="3_6aeiu"]
+[ext_resource type="Texture2D" uid="uid://b55t3y816s32v" path="res://Art/UI/semitrans_arrow_right.png" id="4_esjxs"]
+[ext_resource type="Texture2D" uid="uid://ccd6u3bj61i2q" path="res://Art/UI/blackbar0.66.webp" id="5_yqnys"]
+[ext_resource type="Texture2D" uid="uid://cn0lxndrs846j" path="res://Art/Textures/items/wheel.png" id="6_j0ovk"]
+[ext_resource type="Texture2D" uid="uid://beghfdgot3gv7" path="res://Art/Textures/items/book1.png" id="7_og1hc"]
+[ext_resource type="Texture2D" uid="uid://d2cvko82b8wme" path="res://Art/Textures/items/book2.png" id="8_l5ck4"]
+[ext_resource type="Texture2D" uid="uid://djj2buh8e1v1d" path="res://Art/Textures/items/painting.png" id="9_waw8p"]
+[ext_resource type="Texture2D" uid="uid://bf1m3u4c2c4q" path="res://Art/Textures/items/combo.png" id="10_plvyg"]
+[ext_resource type="Script" path="res://Scripts/Gameplay/dialogue_popup.gd" id="11_tp41y"]
+[ext_resource type="Texture2D" uid="uid://dpvd0pwuwd2q" path="res://Art/UI/blackbar0.5.webp" id="12_hdj3o"]
+[ext_resource type="AudioStream" uid="uid://ba6iwsf1rkc8s" path="res://Audio/music/secrecy-soundtrack-299642.mp3" id="13_5yqpb"]
+[ext_resource type="AudioStream" uid="uid://4j0gem1vncr7" path="res://Audio/sfx/rclick-13693.mp3" id="14_h200f"]
+[ext_resource type="AudioStream" uid="uid://ce27ds7ep0ina" path="res://Audio/sfx/item-equip-6904.mp3" id="15_xrlsi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_le8n3"]
+size = Vector2(406.75, 283.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rns05"]
+size = Vector2(139, 37.2727)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fga0a"]
+size = Vector2(148, 32.1023)
+
+[sub_resource type="GDScript" id="GDScript_mwijk"]
+script/source = "extends Area2D
+
+@export var item_name: String = \"name\"
+
+func _ready():
+	input_pickable = true
+	connect(\"input_event\", Callable(self, \"_on_input_event\"))
+
+func _on_input_event(_viewport, event, _shape_idx):
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		print(item_name + \" was clicked!\")
+		if get_parent().has_method(\"handle_item_interaction\"):
+			get_parent().handle_item_interaction(item_name)
+"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e8hae"]
+radius = 37.0
+height = 192.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uafc7"]
+size = Vector2(54.1083, 72.824)
+
+[sub_resource type="LabelSettings" id="LabelSettings_bxegl"]
+font_size = 40
+
+[node name="Hallway" type="Node2D"]
+script = ExtResource("1_4xhfe")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-10, 2)
+scale = Vector2(0.809754, 1.0081)
+texture = ExtResource("2_dvykm")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="PaintingArea" type="Area2D" parent="."]
+position = Vector2(430, -294)
+script = ExtResource("3_6aeiu")
+item_name = "painting"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PaintingArea"]
+position = Vector2(-285.625, 93.125)
+shape = SubResource("RectangleShape2D_le8n3")
+
+[node name="Book1Area" type="Area2D" parent="."]
+position = Vector2(317, -13)
+scale = Vector2(1, 1.76)
+script = ExtResource("3_6aeiu")
+item_name = "book1"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Book1Area"]
+position = Vector2(-149, 38.6364)
+shape = SubResource("RectangleShape2D_rns05")
+
+[node name="Book2Area" type="Area2D" parent="."]
+position = Vector2(317, -13)
+scale = Vector2(1, 1.76)
+script = ExtResource("3_6aeiu")
+item_name = "book2"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Book2Area"]
+position = Vector2(-351, 34.0909)
+shape = SubResource("RectangleShape2D_fga0a")
+
+[node name="LampArea" type="Area2D" parent="."]
+script = SubResource("GDScript_mwijk")
+item_name = "lamp"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LampArea"]
+position = Vector2(430, -294)
+shape = SubResource("CapsuleShape2D_e8hae")
+
+[node name="LampArea2" type="Area2D" parent="."]
+script = SubResource("GDScript_mwijk")
+item_name = "lamp"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LampArea2"]
+position = Vector2(-124, -246)
+shape = SubResource("CapsuleShape2D_e8hae")
+
+[node name="EnterHallway1Area" type="Area2D" parent="."]
+position = Vector2(317, -13)
+scale = Vector2(1, 1.76)
+script = ExtResource("3_6aeiu")
+item_name = "hallway_1"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnterHallway1Area"]
+position = Vector2(-762.694, 142.595)
+scale = Vector2(1.64485, 3.99469)
+shape = SubResource("RectangleShape2D_uafc7")
+
+[node name="SemitransArrowRight" type="Sprite2D" parent="EnterHallway1Area"]
+position = Vector2(-763.944, 142.311)
+scale = Vector2(-0.088, -0.189)
+texture = ExtResource("4_esjxs")
+
+[node name="ItemInventoryBar" type="Sprite2D" parent="."]
+position = Vector2(0, -394)
+scale = Vector2(1.44, 0.531064)
+texture = ExtResource("5_yqnys")
+
+[node name="WheelItem" type="Sprite2D" parent="."]
+position = Vector2(-228, -411)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("6_j0ovk")
+
+[node name="Book1Item" type="Sprite2D" parent="."]
+position = Vector2(-116, -406)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("7_og1hc")
+
+[node name="Book2Item" type="Sprite2D" parent="."]
+position = Vector2(9.53674e-07, -411)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("8_l5ck4")
+
+[node name="PaintingItem" type="Sprite2D" parent="."]
+position = Vector2(123, -407)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("9_waw8p")
+
+[node name="ComboCodeItem" type="Sprite2D" parent="."]
+position = Vector2(234, -406)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("10_plvyg")
+
+[node name="Popup" type="Control" parent="." node_paths=PackedStringArray("dialogue_label")]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("11_tp41y")
+dialogue_label = NodePath("Label")
+
+[node name="Label" type="Label" parent="Popup"]
+z_index = 1
+custom_minimum_size = Vector2(800, 200)
+layout_mode = 0
+offset_left = -397.0
+offset_top = -210.0
+offset_right = 403.0
+offset_bottom = 190.0
+text = "Test Label"
+label_settings = SubResource("LabelSettings_bxegl")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Background" type="Sprite2D" parent="Popup"]
+scale = Vector2(2, 1.32)
+texture = ExtResource("12_hdj3o")
+
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_5yqpb")
+volume_db = 6.0
+autoplay = true
+
+[node name="ClickSoundPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_h200f")
+
+[node name="InventorySoundPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_xrlsi")

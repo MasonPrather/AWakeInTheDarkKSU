@@ -11,3 +11,9 @@ func _on_input_event(_viewport, event, _shape_idx):
 		print(item_name + " was clicked!")
 		if get_parent().has_method("handle_item_interaction"):
 			get_parent().handle_item_interaction(item_name)
+
+func _on_mouse_entered():
+	Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
+	
+func _on_mouse_exited():
+	Input.set_default_cursor_shape(Input.CURSOR_ARROW)

@@ -3,8 +3,23 @@
 [ext_resource type="Texture2D" uid="uid://qtaupdielra" path="res://Art/Textures/tester.png" id="1_prkc6"]
 [ext_resource type="Script" path="res://Scripts/SceneScripts/pnc_template.gd" id="1_segkt"]
 [ext_resource type="Script" path="res://Scripts/Gameplay/camera_2d.gd" id="2_8e4dn"]
-[ext_resource type="Script" path="res://Scripts/Objects/collectible.gd" id="3_42nsf"]
 [ext_resource type="Script" path="res://Scripts/Gameplay/moveable.gd" id="4_jvrnl"]
+
+[sub_resource type="GDScript" id="GDScript_mwijk"]
+script/source = "extends Area2D
+
+@export var item_name: String = \"name\"
+
+func _ready():
+	input_pickable = true
+	connect(\"input_event\", Callable(self, \"_on_input_event\"))
+
+func _on_input_event(_viewport, event, _shape_idx):
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		print(item_name + \" was clicked!\")
+		if get_parent().has_method(\"handle_item_interaction\"):
+			get_parent().handle_item_interaction(item_name)
+"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mt60w"]
 size = Vector2(221.75, 98.25)
@@ -25,7 +40,7 @@ texture = ExtResource("1_prkc6")
 script = ExtResource("2_8e4dn")
 
 [node name="Test1CollectibleObject" type="Area2D" parent="."]
-script = ExtResource("3_42nsf")
+script = SubResource("GDScript_mwijk")
 item_name = "test1"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Test1CollectibleObject"]
@@ -34,7 +49,7 @@ position = Vector2(-227, -94)
 shape = SubResource("RectangleShape2D_mt60w")
 
 [node name="Test2CollectibleObject" type="Area2D" parent="."]
-script = ExtResource("3_42nsf")
+script = SubResource("GDScript_mwijk")
 item_name = "test2"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Test2CollectibleObject"]
@@ -57,7 +72,7 @@ texture = SubResource("PlaceholderTexture2D_mf47o")
 [node name="Test3CollectibleObject" type="Area2D" parent="."]
 z_index = 1
 position = Vector2(800, 97)
-script = ExtResource("3_42nsf")
+script = SubResource("GDScript_mwijk")
 item_name = "test3"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Test3CollectibleObject"]

@@ -17,8 +17,12 @@ func _ready() -> void:
 	painting_item.visible = false
 	combo_code_item.visible = false
 
+	# Load SFX
 	click_sound.stream = load("res://Audio/sfx/rclick-13693.mp3")
 	inventory_sound.stream = load("res://Audio/sfx/item-equip-6904.mp3")
+	
+	# Sync collected items
+	restore_inventory_visuals()
 
 # Play SFX
 func play_click_sound(): click_sound.play()
@@ -30,6 +34,15 @@ func handle_item_interaction(item_name: String):
 	var popup = get_node("/root/Hallway/Popup")
 
 	match item_name:
+		"lamp":
+			popup.show_dialogue("The lamp dimly lights the area - warm to the touch.")
+		
+		"crate":
+			popup.show_dialogue("A large crate. It's empty.")
+		
+		"door1":
+			popup.show_dialogue("The door is locked tight.")
+		
 		"wheel":
 			wheel_item.visible = true
 			popup.show_dialogue("An old, rusted ship's wheel.")
@@ -37,7 +50,7 @@ func handle_item_interaction(item_name: String):
 
 		"book1":
 			book1_item.visible = true
-			popup.show_dialogue("The title reads: *Captain's Journal: Final Voyage*.")
+			popup.show_dialogue("The title reads: Captain's Journal: Final Voyage.")
 			add_to_inventory("book1")
 
 		"book2":
@@ -47,7 +60,7 @@ func handle_item_interaction(item_name: String):
 
 		"painting":
 			painting_item.visible = true
-			if SaveManager.inventory_items.has("book1"):
+			if SaveManager.get_state("book1_read", true):
 				popup.show_dialogue("The painting seems to be watching you... something is etched in its eye.")
 				SaveManager.set_state("fish_code_seen", true)
 			else:
@@ -70,6 +83,20 @@ func add_to_inventory(item: String):
 		SaveManager.add_to_inventory(item)
 		play_inventory_sound()
 		print("Added %s to global inventory" % item)
+
+func restore_inventory_visuals():
+	for item in SaveManager.inventory_items:
+		match item:
+			"wheel":
+				wheel_item.visible = true
+			"book1":
+				book1_item.visible = true
+			"book2":
+				book2_item.visible = true
+			"painting":
+				painting_item.visible = true
+			"combo_code":
+				combo_code_item.visible = true
 
 func change_scene(path: String):
 	SaveManager.current_scene_path = path
