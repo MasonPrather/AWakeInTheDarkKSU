@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="AWakeInTheDark"
-run/main_scene="res://Scenes/bridge.tscn"
+run/main_scene="res://Scenes/captains_cabin.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://Art/Textures/icon.svg"
 
