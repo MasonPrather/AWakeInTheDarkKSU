@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dwp5cfw6dvhug"]
+[gd_scene load_steps=23 format=3 uid="uid://dooh76rv3b4ho"]
 
 [ext_resource type="Script" path="res://Scripts/SceneScripts/hallway.gd" id="1_4xhfe"]
 [ext_resource type="Texture2D" uid="uid://ddrefi82jsyql" path="res://Art/Textures/backgrounds/hallway_sideroom.png" id="2_dvykm"]

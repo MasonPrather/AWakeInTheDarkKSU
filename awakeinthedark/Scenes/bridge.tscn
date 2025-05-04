@@ -1,0 +1,85 @@
+[gd_scene load_steps=10 format=3 uid="uid://3y44btcqhhnm"]
+
+[ext_resource type="Texture2D" uid="uid://b5brub75g251y" path="res://Art/Textures/backgrounds/bridge.png" id="1_b7j52"]
+[ext_resource type="Script" path="res://Scenes/bridge.gd" id="1_ie3gy"]
+[ext_resource type="Script" path="res://Scripts/Objects/collectible.gd" id="2_7aefc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_16bbl"]
+radius = 148.408
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ylekd"]
+size = Vector2(69, 91)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rls3m"]
+radius = 99.0
+height = 246.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_axrkp"]
+radius = 80.0
+height = 196.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1rdxy"]
+size = Vector2(103, 75.5)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_aqjlb"]
+radius = 39.0
+height = 134.0
+
+[node name="Bridge" type="Node2D"]
+script = ExtResource("1_ie3gy")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(0, -1)
+scale = Vector2(1.38056, 1.38056)
+texture = ExtResource("1_b7j52")
+
+[node name="Camera2D" type="Camera2D" parent="Background"]
+
+[node name="WheelArea" type="Area2D" parent="."]
+script = ExtResource("2_7aefc")
+item_name = "wheel"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WheelArea"]
+position = Vector2(-44, 342)
+shape = SubResource("CircleShape2D_16bbl")
+
+[node name="ChartsArea" type="Area2D" parent="."]
+script = ExtResource("2_7aefc")
+item_name = "charts"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChartsArea"]
+position = Vector2(390, 261)
+shape = SubResource("RectangleShape2D_ylekd")
+
+[node name="CompassArea" type="Area2D" parent="."]
+script = ExtResource("2_7aefc")
+item_name = "compass"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CompassArea"]
+position = Vector2(340, -39)
+shape = SubResource("CapsuleShape2D_rls3m")
+
+[node name="MysteryShipArea" type="Area2D" parent="."]
+script = ExtResource("2_7aefc")
+item_name = "mystery_ship"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MysteryShipArea"]
+position = Vector2(-354, -74)
+shape = SubResource("CapsuleShape2D_axrkp")
+
+[node name="SpyglassArea" type="Area2D" parent="."]
+script = ExtResource("2_7aefc")
+item_name = "spyglass"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpyglassArea"]
+position = Vector2(-10.5, -373.75)
+shape = SubResource("RectangleShape2D_1rdxy")
+
+[node name="FinalNoteArea" type="Area2D" parent="."]
+script = ExtResource("2_7aefc")
+item_name = "final_note"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FinalNoteArea"]
+position = Vector2(-12, 28)
+rotation = 1.5795
+shape = SubResource("CapsuleShape2D_aqjlb")
