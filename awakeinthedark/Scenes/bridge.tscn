@@ -1,7 +1,7 @@
-[gd_scene load_steps=22 format=3 uid="uid://3y44btcqhhnm"]
+[gd_scene load_steps=22 format=3 uid="uid://duhflbec27ivd"]
 
 [ext_resource type="Texture2D" uid="uid://b5brub75g251y" path="res://Art/Textures/backgrounds/bridge.png" id="1_b7j52"]
-[ext_resource type="Script" path="res://Scenes/bridge.gd" id="1_ie3gy"]
+[ext_resource type="Script" path="res://Scripts/SceneScripts/bridge.gd" id="1_ie3gy"]
 [ext_resource type="Script" path="res://Scripts/Objects/collectible.gd" id="2_7aefc"]
 [ext_resource type="AudioStream" uid="uid://ba6iwsf1rkc8s" path="res://Audio/music/secrecy-soundtrack-299642.mp3" id="4_2gche"]
 [ext_resource type="AudioStream" uid="uid://4j0gem1vncr7" path="res://Audio/sfx/rclick-13693.mp3" id="5_n70hj"]
@@ -30,7 +30,7 @@ radius = 80.0
 height = 196.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1rdxy"]
-size = Vector2(103, 75.5)
+size = Vector2(89.5, 36.75)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_aqjlb"]
 radius = 39.0
@@ -88,7 +88,7 @@ script = ExtResource("2_7aefc")
 item_name = "spyglass"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpyglassArea"]
-position = Vector2(-10.5, -373.75)
+position = Vector2(-124.75, 78.625)
 shape = SubResource("RectangleShape2D_1rdxy")
 
 [node name="FinalNoteArea" type="Area2D" parent="."]
@@ -96,6 +96,15 @@ script = ExtResource("2_7aefc")
 item_name = "final_note"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FinalNoteArea"]
+position = Vector2(-423, 247)
+rotation = 3.11632
+shape = SubResource("CapsuleShape2D_aqjlb")
+
+[node name="BarrelArea" type="Area2D" parent="."]
+script = ExtResource("2_7aefc")
+item_name = "barrel"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BarrelArea"]
 position = Vector2(-423, 247)
 rotation = 3.11632
 shape = SubResource("CapsuleShape2D_aqjlb")
@@ -126,7 +135,7 @@ rotation = 0.334338
 scale = Vector2(0.00899015, 0.00899015)
 texture = ExtResource("8_dmjlo")
 
-[node name="FinalNote" type="Sprite2D" parent="."]
+[node name="FinalNoteItem" type="Sprite2D" parent="."]
 position = Vector2(244, -405)
 scale = Vector2(0.087963, 0.087963)
 texture = ExtResource("9_30q0t")

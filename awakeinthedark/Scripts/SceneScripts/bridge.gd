@@ -61,7 +61,7 @@ func handle_item_interaction(item_name: String):
 			add_to_inventory("compass")
 			add_examined_item("compass")
 			
-		"mysterious_ship":
+		"mystery_ship":
 			popup.show_dialogue("That ship in the distance... is it a mirror image of our own?")
 			add_examined_item("mystery_ship")
 			
@@ -78,14 +78,29 @@ func handle_item_interaction(item_name: String):
 				final_note_item.visible = true
 				popup.show_dialogue("'To whoever finds this: We crossed into The Void. Time and space bend here. The crew... we saw ourselves on another ship. When we made contact, they vanished. One by one, we're disappearing too. I'm the last one left. The Compass Lied. It led us here intentionally. If you're reading this, you're me, from another time. Break the cycle. -Captain'")
 				add_to_inventory("final_note")
-				# Wait before showing end screen
-				await get_tree().create_timer(12.0).timeout
-				show_end_game()
+				
+				# Check if all items have been collected before ending
+				if has_all_required_items():
+					# Wait before showing end screen
+					await get_tree().create_timer(12.0).timeout
+					show_end_game()
+				else:
+					# Hint that there's more to find
+					await get_tree().create_timer(5.0).timeout
+					popup.show_dialogue("I still need to search this ship thoroughly. There must be more clues.")
 			else:
 				popup.show_dialogue("I need to explore more of the bridge first.")
 		
 		"hallway_door":
 			change_scene("res://Scenes/hallway_2.tscn")
+
+# Check if all required items have been collected
+func has_all_required_items() -> bool:
+	var required_items = ["wheel", "charts", "spyglass", "compass", "final_note"]
+	for item in required_items:
+		if not SaveManager.inventory_items.has(item):
+			return false
+	return true
 
 # Track examined items for puzzle progression
 func add_examined_item(item: String):
