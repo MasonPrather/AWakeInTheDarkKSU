@@ -1,0 +1,170 @@
+[gd_scene load_steps=22 format=3 uid="uid://3y44btcqhhnm"]
+
+[ext_resource type="Texture2D" uid="uid://b5brub75g251y" path="res://Art/Textures/backgrounds/bridge.png" id="1_b7j52"]
+[ext_resource type="Script" path="res://Scenes/bridge.gd" id="1_ie3gy"]
+[ext_resource type="Script" path="res://Scripts/Objects/collectible.gd" id="2_7aefc"]
+[ext_resource type="AudioStream" uid="uid://ba6iwsf1rkc8s" path="res://Audio/music/secrecy-soundtrack-299642.mp3" id="4_2gche"]
+[ext_resource type="AudioStream" uid="uid://4j0gem1vncr7" path="res://Audio/sfx/rclick-13693.mp3" id="5_n70hj"]
+[ext_resource type="AudioStream" uid="uid://ce27ds7ep0ina" path="res://Audio/sfx/item-equip-6904.mp3" id="6_yvg1w"]
+[ext_resource type="Texture2D" uid="uid://ccd6u3bj61i2q" path="res://Art/UI/blackbar0.66.webp" id="7_ifywx"]
+[ext_resource type="Script" path="res://Scripts/Gameplay/dialogue_popup.gd" id="7_tdvn1"]
+[ext_resource type="Texture2D" uid="uid://0glhhrx3oxt0" path="res://Art/Textures/items/old_map.png" id="7_wrx4r"]
+[ext_resource type="Texture2D" uid="uid://dpvd0pwuwd2q" path="res://Art/UI/blackbar0.5.webp" id="8_2ymb4"]
+[ext_resource type="Texture2D" uid="uid://cn0lxndrs846j" path="res://Art/Textures/items/wheel.png" id="8_3exc5"]
+[ext_resource type="Texture2D" uid="uid://cbgfrdvdkpjg1" path="res://Art/Textures/items/spyglass.png" id="8_dmjlo"]
+[ext_resource type="Texture2D" uid="uid://jwictdc2sc4h" path="res://Art/Textures/items/compass_lied_note.png" id="9_30q0t"]
+[ext_resource type="Texture2D" uid="uid://bynlndyaa0rpn" path="res://Art/Textures/items/broken_compass.png" id="9_pg24g"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_16bbl"]
+radius = 148.408
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ylekd"]
+size = Vector2(69, 91)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rls3m"]
+radius = 99.0
+height = 246.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_axrkp"]
+radius = 80.0
+height = 196.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1rdxy"]
+size = Vector2(103, 75.5)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_aqjlb"]
+radius = 39.0
+height = 134.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_u4lss"]
+font_size = 40
+
+[node name="Bridge" type="Node2D"]
+script = ExtResource("1_ie3gy")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(0, -1)
+scale = Vector2(1.38056, 1.38056)
+texture = ExtResource("1_b7j52")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -1)
+scale = Vector2(1.38056, 1.38056)
+
+[node name="WheelArea" type="Area2D" parent="."]
+script = ExtResource("2_7aefc")
+item_name = "wheel"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WheelArea"]
+position = Vector2(-44, 342)
+shape = SubResource("CircleShape2D_16bbl")
+
+[node name="ChartsArea" type="Area2D" parent="."]
+script = ExtResource("2_7aefc")
+item_name = "charts"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChartsArea"]
+position = Vector2(390, 261)
+shape = SubResource("RectangleShape2D_ylekd")
+
+[node name="CompassArea" type="Area2D" parent="."]
+script = ExtResource("2_7aefc")
+item_name = "compass"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CompassArea"]
+position = Vector2(340, -39)
+shape = SubResource("CapsuleShape2D_rls3m")
+
+[node name="MysteryShipArea" type="Area2D" parent="."]
+script = ExtResource("2_7aefc")
+item_name = "mystery_ship"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MysteryShipArea"]
+position = Vector2(-354, -74)
+shape = SubResource("CapsuleShape2D_axrkp")
+
+[node name="SpyglassArea" type="Area2D" parent="."]
+script = ExtResource("2_7aefc")
+item_name = "spyglass"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpyglassArea"]
+position = Vector2(-10.5, -373.75)
+shape = SubResource("RectangleShape2D_1rdxy")
+
+[node name="FinalNoteArea" type="Area2D" parent="."]
+script = ExtResource("2_7aefc")
+item_name = "final_note"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FinalNoteArea"]
+position = Vector2(-423, 247)
+rotation = 3.11632
+shape = SubResource("CapsuleShape2D_aqjlb")
+
+[node name="ItemInventoryBar" type="Sprite2D" parent="."]
+position = Vector2(0, -394)
+scale = Vector2(1.44, 0.531064)
+texture = ExtResource("7_ifywx")
+
+[node name="WheelItem" type="Sprite2D" parent="."]
+position = Vector2(-223.3, -409.3)
+scale = Vector2(0.0611328, 0.0611328)
+texture = ExtResource("8_3exc5")
+
+[node name="CompassItem" type="Sprite2D" parent="."]
+position = Vector2(-126, -408)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("9_pg24g")
+
+[node name="ChartsItem" type="Sprite2D" parent="."]
+position = Vector2(-11, -409)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("7_wrx4r")
+
+[node name="SpyglassItem" type="Sprite2D" parent="."]
+position = Vector2(115, -406)
+rotation = 0.334338
+scale = Vector2(0.00899015, 0.00899015)
+texture = ExtResource("8_dmjlo")
+
+[node name="FinalNote" type="Sprite2D" parent="."]
+position = Vector2(244, -405)
+scale = Vector2(0.087963, 0.087963)
+texture = ExtResource("9_30q0t")
+
+[node name="Popup" type="Control" parent="." node_paths=PackedStringArray("dialogue_label")]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("7_tdvn1")
+dialogue_label = NodePath("Label")
+
+[node name="Label" type="Label" parent="Popup"]
+z_index = 1
+custom_minimum_size = Vector2(800, 200)
+layout_mode = 0
+offset_left = -397.0
+offset_top = -210.0
+offset_right = 403.0
+offset_bottom = 190.0
+text = "Test Label"
+label_settings = SubResource("LabelSettings_u4lss")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Background" type="Sprite2D" parent="Popup"]
+scale = Vector2(2, 1.32)
+texture = ExtResource("8_2ymb4")
+
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_2gche")
+volume_db = 6.0
+autoplay = true
+
+[node name="ClickSoundPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_n70hj")
+
+[node name="InventorySoundPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_yvg1w")

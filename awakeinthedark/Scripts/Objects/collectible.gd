@@ -5,6 +5,8 @@ extends Area2D
 func _ready():
 	input_pickable = true
 	connect("input_event", Callable(self, "_on_input_event"))
+	connect("mouse_entered", Callable(self, "_on_mouse_entered"))
+	connect("mouse_exited", Callable(self, "_on_mouse_exited"))
 
 func _on_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
