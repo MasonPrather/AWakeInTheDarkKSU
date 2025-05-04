@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://3y44btcqhhnm"]
+[gd_scene load_steps=22 format=3 uid="uid://3y44btcqhhnm"]
 
 [ext_resource type="Texture2D" uid="uid://b5brub75g251y" path="res://Art/Textures/backgrounds/bridge.png" id="1_b7j52"]
 [ext_resource type="Script" path="res://Scenes/bridge.gd" id="1_ie3gy"]
@@ -8,8 +8,11 @@
 [ext_resource type="AudioStream" uid="uid://ce27ds7ep0ina" path="res://Audio/sfx/item-equip-6904.mp3" id="6_yvg1w"]
 [ext_resource type="Texture2D" uid="uid://ccd6u3bj61i2q" path="res://Art/UI/blackbar0.66.webp" id="7_ifywx"]
 [ext_resource type="Script" path="res://Scripts/Gameplay/dialogue_popup.gd" id="7_tdvn1"]
+[ext_resource type="Texture2D" uid="uid://0glhhrx3oxt0" path="res://Art/Textures/items/old_map.png" id="7_wrx4r"]
 [ext_resource type="Texture2D" uid="uid://dpvd0pwuwd2q" path="res://Art/UI/blackbar0.5.webp" id="8_2ymb4"]
 [ext_resource type="Texture2D" uid="uid://cn0lxndrs846j" path="res://Art/Textures/items/wheel.png" id="8_3exc5"]
+[ext_resource type="Texture2D" uid="uid://cbgfrdvdkpjg1" path="res://Art/Textures/items/spyglass.png" id="8_dmjlo"]
+[ext_resource type="Texture2D" uid="uid://jwictdc2sc4h" path="res://Art/Textures/items/compass_lied_note.png" id="9_30q0t"]
 [ext_resource type="Texture2D" uid="uid://bynlndyaa0rpn" path="res://Art/Textures/items/broken_compass.png" id="9_pg24g"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_16bbl"]
@@ -103,8 +106,8 @@ scale = Vector2(1.44, 0.531064)
 texture = ExtResource("7_ifywx")
 
 [node name="WheelItem" type="Sprite2D" parent="."]
-position = Vector2(-228, -411)
-scale = Vector2(0.05, 0.05)
+position = Vector2(-223.3, -409.3)
+scale = Vector2(0.0611328, 0.0611328)
 texture = ExtResource("8_3exc5")
 
 [node name="CompassItem" type="Sprite2D" parent="."]
@@ -115,17 +118,18 @@ texture = ExtResource("9_pg24g")
 [node name="ChartsItem" type="Sprite2D" parent="."]
 position = Vector2(-11, -409)
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("8_3exc5")
+texture = ExtResource("7_wrx4r")
 
 [node name="SpyglassItem" type="Sprite2D" parent="."]
-position = Vector2(98, -411)
-scale = Vector2(0.05, 0.05)
-texture = ExtResource("8_3exc5")
+position = Vector2(115, -406)
+rotation = 0.334338
+scale = Vector2(0.00899015, 0.00899015)
+texture = ExtResource("8_dmjlo")
 
 [node name="FinalNote" type="Sprite2D" parent="."]
-position = Vector2(226, -408)
-scale = Vector2(0.05, 0.05)
-texture = ExtResource("8_3exc5")
+position = Vector2(244, -405)
+scale = Vector2(0.087963, 0.087963)
+texture = ExtResource("9_30q0t")
 
 [node name="Popup" type="Control" parent="." node_paths=PackedStringArray("dialogue_label")]
 visible = false
