@@ -1,7 +1,7 @@
 [gd_scene load_steps=22 format=3 uid="uid://3y44btcqhhnm"]
 
 [ext_resource type="Texture2D" uid="uid://b5brub75g251y" path="res://Art/Textures/backgrounds/bridge.png" id="1_b7j52"]
-[ext_resource type="Script" path="res://Scenes/bridge.gd" id="1_ie3gy"]
+[ext_resource type="Script" path="res://Scripts/SceneScripts/bridge.gd" id="1_ie3gy"]
 [ext_resource type="Script" path="res://Scripts/Objects/collectible.gd" id="2_7aefc"]
 [ext_resource type="AudioStream" uid="uid://ba6iwsf1rkc8s" path="res://Audio/music/secrecy-soundtrack-299642.mp3" id="4_2gche"]
 [ext_resource type="AudioStream" uid="uid://4j0gem1vncr7" path="res://Audio/sfx/rclick-13693.mp3" id="5_n70hj"]
