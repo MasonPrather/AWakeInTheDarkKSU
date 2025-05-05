@@ -1,21 +1,13 @@
 [gd_scene load_steps=22 format=3 uid="uid://duhflbec27ivd"]
 
 [ext_resource type="Texture2D" uid="uid://b5brub75g251y" path="res://Art/Textures/backgrounds/bridge.png" id="1_b7j52"]
-<<<<<<< Updated upstream
-[ext_resource type="Script" uid="uid://3sg5tgw0bduj" path="res://Scripts/SceneScripts/bridge.gd" id="1_ie3gy"]
-=======
-[ext_resource type="Script" uid="uid://uru6r0a24jm5" path="res://Scripts/SceneScripts/bridge.gd" id="1_ie3gy"]
->>>>>>> Stashed changes
+[ext_resource type="Script" path="res://Scripts/SceneScripts/bridge.gd" id="1_ie3gy"]
 [ext_resource type="Script" uid="uid://skv03n71drm" path="res://Scripts/Objects/collectible.gd" id="2_7aefc"]
 [ext_resource type="AudioStream" uid="uid://ba6iwsf1rkc8s" path="res://Audio/music/secrecy-soundtrack-299642.mp3" id="4_2gche"]
 [ext_resource type="AudioStream" uid="uid://4j0gem1vncr7" path="res://Audio/sfx/rclick-13693.mp3" id="5_n70hj"]
 [ext_resource type="AudioStream" uid="uid://ce27ds7ep0ina" path="res://Audio/sfx/item-equip-6904.mp3" id="6_yvg1w"]
 [ext_resource type="Texture2D" uid="uid://ccd6u3bj61i2q" path="res://Art/UI/blackbar0.66.webp" id="7_ifywx"]
-<<<<<<< Updated upstream
-[ext_resource type="Script" uid="uid://eeo4ygt3rl7v" path="res://Scripts/Gameplay/dialogue_popup.gd" id="7_tdvn1"]
-=======
-[ext_resource type="Script" uid="uid://d0kjw64wn17ha" path="res://Scripts/Gameplay/dialogue_popup.gd" id="7_tdvn1"]
->>>>>>> Stashed changes
+[ext_resource type="Script" path="res://Scripts/Gameplay/dialogue_popup.gd" id="7_tdvn1"]
 [ext_resource type="Texture2D" uid="uid://0glhhrx3oxt0" path="res://Art/Textures/items/old_map.png" id="7_wrx4r"]
 [ext_resource type="Texture2D" uid="uid://dpvd0pwuwd2q" path="res://Art/UI/blackbar0.5.webp" id="8_2ymb4"]
 [ext_resource type="Texture2D" uid="uid://cn0lxndrs846j" path="res://Art/Textures/items/wheel.png" id="8_3exc5"]

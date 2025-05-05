@@ -11,13 +11,10 @@ config_version=5
 [application]
 
 config/name="AWakeInTheDark"
-<<<<<<< Updated upstream
 run/main_scene="uid://duhflbec27ivd"
-=======
-run/main_scene="uid://rpjwp7wgmjq7"
->>>>>>> Stashed changes
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://Art/Textures/icon.svg"
+<<<<<<<Updatedupstreamrun/main_scene="uid://duhflbec27ivd"
 
 [autoload]
 
