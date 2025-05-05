@@ -153,8 +153,14 @@ func handle_item_interaction(item_name: String):
 				final_note_item.visible = true
 				add_to_inventory("final_note")
 				
+<<<<<<< Updated upstream
 				# Show note contents
 				popup.show_dialogue("'To whoever finds this: We crossed into The Void. Time and space bend here. The crew... we saw ourselves on another ship. When we made contact, they vanished. One by one, we're disappearing too. I'm the last one left. The Compass Lied. It led us here intentionally. If you're reading this, you're me, from another time. Break the cycle. -Captain'")
+=======
+		# Show note contents - with better text overlay
+				popup.show_dialogue("'To whoever finds this: We crossed into The Void. Time and space bend here. The crew... we saw ourselves on another ship. When we made contact, they vanished. One by one, we're disappearing too. I'm the last one left. The Compass Lied. It led us here intentionally. If you're reading this, you're me, from another time. Break the cycle. -Captain'")
+
+>>>>>>> Stashed changes
 				
 				# Wait for note popup to fully close
 				while popup.visible:
@@ -186,6 +192,7 @@ func handle_item_interaction(item_name: String):
 			if not has_examined("mystery_ship"):
 				popup.show_dialogue("I feel like I should investigate that ship in the distance first...")
 				return
+<<<<<<< Updated upstream
 				
 			if final_note_found or SaveManager.get_state("final_note_found", false):
 				# Start popup sequence
@@ -195,6 +202,22 @@ func handle_item_interaction(item_name: String):
 				final_note_item.visible = true
 				popup.show_dialogue("'To whoever finds this: We crossed into The Void. Time and space bend here. The crew... we saw ourselves on another ship. When we made contact, they vanished. One by one, we're disappearing too. I'm the last one left. The Compass Lied. It led us here intentionally. If you're reading this, you're me, from another time. Break the cycle. -Captain'")
 				
+=======
+				
+			if final_note_found or SaveManager.get_state("final_note_found", false):
+				# Start popup sequence
+				popup_sequence_active = true
+				
+				# Show note contents with much shorter text and suggestion for smaller font
+				final_note_item.visible = true
+				
+				if popup.has_method("show_dialogue_with_style"):
+					# Use custom styling with smaller font
+					popup.show_dialogue_with_style("'We crossed into The Void. Time bends here. Saw our own ship. Crew vanished upon contact. I'm the last one. The Compass brought us here on purpose. If you're reading this, you're me from another time. Break the cycle. -Captain'", 0.8) # 80% of normal font size
+				else:
+					popup.show_dialogue("'We crossed into The Void. Time bends here. Saw our own ship. Crew vanished upon contact. I'm the last one. The Compass brought us here on purpose. If you're reading this, you're me from another time. Break the cycle. -Captain'")
+				
+>>>>>>> Stashed changes
 				# Check if we need to add it to inventory (in case player is clicking it directly)
 				if not SaveManager.inventory_items.has("final_note"):
 					add_to_inventory("final_note")

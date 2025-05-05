@@ -16,7 +16,11 @@
 [ext_resource type="Texture2D" uid="uid://d0dckodxyuq1u" path="res://Art/Textures/items/compass_lied_note_2.png" id="13_p3b6p"]
 [ext_resource type="Texture2D" uid="uid://cjilw35fdxp3a" path="res://Art/Textures/items/compass_lied_book.png" id="14_njrbi"]
 [ext_resource type="Texture2D" uid="uid://b4rbkbvj63qhs" path="res://Art/Textures/items/key.png" id="15_5v820"]
+<<<<<<< Updated upstream
 [ext_resource type="Script" uid="uid://eeo4ygt3rl7v" path="res://Scripts/Gameplay/dialogue_popup.gd" id="16_jabw4"]
+=======
+[ext_resource type="Script" uid="uid://d0kjw64wn17ha" path="res://Scripts/Gameplay/dialogue_popup.gd" id="16_jabw4"]
+>>>>>>> Stashed changes
 [ext_resource type="Texture2D" uid="uid://dpvd0pwuwd2q" path="res://Art/UI/blackbar0.5.webp" id="17_aoyoi"]
 [ext_resource type="AudioStream" uid="uid://ba6iwsf1rkc8s" path="res://Audio/music/secrecy-soundtrack-299642.mp3" id="19_lob3y"]
 [ext_resource type="AudioStream" uid="uid://4j0gem1vncr7" path="res://Audio/sfx/rclick-13693.mp3" id="20_06jtd"]
