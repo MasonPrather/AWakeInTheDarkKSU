@@ -310,7 +310,7 @@ func show_end_game():
 	var end_label = RichTextLabel.new()
 	end_label.bbcode_enabled = true
 	# Use larger font size with [font_size] tag
-	end_label.bbcode_text = "[center][font_size=48]You understand now.[/font_size]\n\n[font_size=40]The Compass led the ship into a realm where time and space fold in on themselves. The crew didn't vanish - they became you, waking up with amnesia, exploring the empty ship.[/font_size]\n\n[font_size=40]Will you break the cycle, or are you doomed to repeat it forever?[/font_size]\n\n[font_size=60]THE END[/font_size][/center]"
+	end_label.bbcode_text = "[center][font_size=48]You understand now.[/font_size]\n\n[font_size=20]The Compass led the ship into a realm where time and space fold in on themselves. The crew didn't vanish - they became you, waking up with amnesia, exploring the empty ship.[/font_size]\n\n[font_size=40]Will you break the cycle, or are you doomed to repeat it forever?[/font_size]\n\n[font_size=60]THE END[/font_size][/center]"
 	
 	# Make the label much larger to fit all text
 	end_label.anchor_left = 0.1
