@@ -60,6 +60,7 @@ func handle_item_interaction(item_name):
 				SaveManager.current_scene_path = "res://Scenes/hallway_1.tscn"
 				SaveManager.save_game()
 				get_tree().change_scene_to_file("res://Scenes/hallway_1.tscn")
+				Input.set_default_cursor_shape(Input.CURSOR_ARROW)
 			else:
 				dialogue_popup.show_dialogue("It's locked! There must be a key somewhere...")
 

@@ -1,8 +1,8 @@
-[gd_scene load_steps=22 format=3 uid="uid://duhflbec27ivd"]
+[gd_scene load_steps=22 format=3 uid="uid://dxgwwls3kx30x"]
 
 [ext_resource type="Texture2D" uid="uid://b5brub75g251y" path="res://Art/Textures/backgrounds/bridge.png" id="1_b7j52"]
 [ext_resource type="Script" path="res://Scripts/SceneScripts/bridge.gd" id="1_ie3gy"]
-[ext_resource type="Script" uid="uid://skv03n71drm" path="res://Scripts/Objects/collectible.gd" id="2_7aefc"]
+[ext_resource type="Script" path="res://Scripts/Objects/collectible.gd" id="2_7aefc"]
 [ext_resource type="AudioStream" uid="uid://ba6iwsf1rkc8s" path="res://Audio/music/secrecy-soundtrack-299642.mp3" id="4_2gche"]
 [ext_resource type="AudioStream" uid="uid://4j0gem1vncr7" path="res://Audio/sfx/rclick-13693.mp3" id="5_n70hj"]
 [ext_resource type="AudioStream" uid="uid://ce27ds7ep0ina" path="res://Audio/sfx/item-equip-6904.mp3" id="6_yvg1w"]
@@ -140,13 +140,14 @@ position = Vector2(244, -405)
 scale = Vector2(0.087963, 0.087963)
 texture = ExtResource("9_30q0t")
 
-[node name="Popup" type="Control" parent="."]
+[node name="Popup" type="Control" parent="." node_paths=PackedStringArray("dialogue_label")]
 visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("7_tdvn1")
+dialogue_label = NodePath("Label")
 
 [node name="Label" type="Label" parent="Popup"]
 z_index = 1

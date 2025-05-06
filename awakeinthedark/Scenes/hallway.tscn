@@ -1,12 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dpir5m2npsjoo"]
+[gd_scene load_steps=2 format=3 uid="uid://b2hlgew1c03ym"]
 
 [ext_resource type="Texture2D" uid="uid://cmdru156enryu" path="res://Art/Textures/backgrounds/hallway.png" id="1_re4ul"]
 
-[sub_resource type="Resource" id="Resource_dclmn"]
-metadata/__load_path__ = "res://Scenes/simple_pause_menu.gd"
-
 [node name="Hallway" type="Node2D"]
-script = SubResource("Resource_dclmn")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1.49998, 5.50003)

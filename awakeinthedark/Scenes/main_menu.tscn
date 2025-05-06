@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://rpjwp7wgmjq7"]
+[gd_scene load_steps=2 format=3 uid="uid://d1wsvscwqofbv"]
 
-[ext_resource type="Script" uid="uid://sh0fmjfnuiar" path="res://Scripts/Gameplay/forced_scene_transition.gd" id="1_06t4h"]
+[ext_resource type="Script" path="res://Scripts/Gameplay/forced_scene_transition.gd" id="1_06t4h"]
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_06t4h")

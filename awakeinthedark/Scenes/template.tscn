@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://ji2gffopi6q7"]
 
 [ext_resource type="Texture2D" uid="uid://qtaupdielra" path="res://Art/Textures/tester.png" id="1_prkc6"]
-[ext_resource type="Script" uid="uid://cp1lh4nb0pmfv" path="res://Scripts/SceneScripts/pnc_template.gd" id="1_segkt"]
-[ext_resource type="Script" uid="uid://r2ro0mcf8jtb" path="res://Scripts/Gameplay/camera_2d.gd" id="2_8e4dn"]
-[ext_resource type="Script" uid="uid://by64q3fy8ngd5" path="res://Scripts/Gameplay/moveable.gd" id="4_jvrnl"]
+[ext_resource type="Script" path="res://Scripts/SceneScripts/pnc_template.gd" id="1_segkt"]
+[ext_resource type="Script" path="res://Scripts/Gameplay/camera_2d.gd" id="2_8e4dn"]
+[ext_resource type="Script" path="res://Scripts/Gameplay/moveable.gd" id="4_jvrnl"]
 
 [sub_resource type="GDScript" id="GDScript_mwijk"]
 script/source = "extends Area2D
